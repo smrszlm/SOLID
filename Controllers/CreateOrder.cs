@@ -1,4 +1,5 @@
 ﻿using SOLID.Entities;
+using SOLID.Enums;
 using SOLID.Interfaces;
 
 namespace SOLID.Controllers
@@ -9,30 +10,30 @@ namespace SOLID.Controllers
         private readonly IDiscount _discount;
         private readonly ISaveOrder _saveOrder;
 
-        public CreateOrder(IDiscount discount, 
+        public CreateOrder(IDiscount discount,
             ISaveOrder saveOrder)
         {
             _discount = discount;
             _saveOrder = saveOrder;
         }
 
-        public async Task Create(IPaymentMethod paymentMethod,INotificationMethod notificationMethod, OrderRequest request)
-        {   
-           var discountTotal = await _discount.GetDiscount(request);
-           var status = paymentMethod.Pay(discountTotal);
+        public async Task Create(IPaymentMethod paymentMethod, INotificationMethod notificationMethod, OrderRequest request)
+        {
+            var discountTotal = await _discount.GetDiscount(request, request.DiscountType);
+            var payment = paymentMethod.Pay(discountTotal);
 
             var order = new Order
             {
                 Id = request.Id,
                 CustomerName = request.CustomerName,
-                CustomerEmail = request.CustomerEmail,
+                CustomerEmail = request.CustomerEmail,  
                 Total = discountTotal,
-                Status = status
+                Status = payment.Status
             };
 
             _saveOrder.Save(order);
 
-            notificationMethod.Notify();
+            notificationMethod.Notify(request.CustomerName, payment.Mensagem);
         }
     }
 }

@@ -4,9 +4,9 @@ namespace SOLID.NotificationMethods
 {
     public class Sms :INotificationMethod
     {
-        public void Notify()
+        public void Notify(string customerName, string mensagem)
         {
-            Console.WriteLine("Sms enviado com sucesso.");
-        }
+            Console.WriteLine($"{customerName},{mensagem}");
+                }
     }
 }

@@ -4,9 +4,9 @@ namespace SOLID.NotificationMethods
 {
     public class Email : INotificationMethod
     {
-        public void Notify()
+        public void Notify(string customerName, string mensagem)
         {
-            Console.WriteLine("Email enviado com sucesso.");
+            Console.WriteLine($"{customerName},{mensagem}");
         }
     }
 }

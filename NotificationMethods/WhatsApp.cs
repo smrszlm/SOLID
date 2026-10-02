@@ -4,9 +4,9 @@ namespace SOLID.NotificationMethods
 {
     public class WhatsApp : INotificationMethod
     {
-        public void Notify()
+        public void Notify(string customerName, string mensagem)
         {
-            Console.WriteLine("Mensagem enviada com sucesso.");
+            Console.WriteLine($"{customerName},{mensagem}");
         }
     }
 }

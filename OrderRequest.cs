@@ -11,6 +11,8 @@ namespace SOLID
         public required string CustomerEmail { get; set; }
 
         public decimal Total { get; set; }
+        
+        public DiscountEnums DiscountType { get; set; }
 
         public StatusEnums Status { get; set; }
     }

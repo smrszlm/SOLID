@@ -1,14 +1,19 @@
-﻿using SOLID.Enums;
+﻿using SOLID.Entities;
+using SOLID.Enums;
 using SOLID.Interfaces;
 
 namespace SOLID.PaymentMethods
 {
     public class Pix : IPaymentMethod
     {
-        public StatusEnums Pay(decimal total)
+        public PaymentResponse Pay(decimal total)
         {
-            Console.WriteLine("Pagamento com Pix Efetuado");
-            return StatusEnums.Paid;
+            return new PaymentResponse
+            {
+                Status = StatusEnums.Paid,
+                TransactionId = 0,
+                Mensagem = null
+            };
         }
     }
 }

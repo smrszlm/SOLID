@@ -1,14 +1,19 @@
-﻿using SOLID.Enums;
+﻿using SOLID.Entities;
+using SOLID.Enums;
 using SOLID.Interfaces;
 
 namespace SOLID.PaymentMethods
 {
     public class Boleto : IPaymentMethod
     {
-        public StatusEnums Pay(decimal total)
+        public PaymentResponse Pay(decimal total)
         {
-            Console.WriteLine("Pagamento com Boleto Efetuado");
-            return StatusEnums.Pending;
+            return new PaymentResponse
+            {
+                Status = StatusEnums.Pending,
+                TransactionId = 0,
+                Mensagem = null
+            };
         }
     }
 }

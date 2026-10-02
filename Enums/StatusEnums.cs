@@ -3,6 +3,7 @@
     public enum StatusEnums
     {
         Paid,
-        Pending
+        Pending,
+        Refused 
     }
 }

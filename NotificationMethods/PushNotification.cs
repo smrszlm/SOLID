@@ -4,9 +4,9 @@ namespace SOLID.NotificationMethods
 {
     public class PushNotification :INotificationMethod
     {
-        public void Notify()
+        public void Notify(string customerName, string mensagem)
         {
-            Console.WriteLine("Push Notification enviada com sucesso.");
+            Console.WriteLine($"{customerName},{mensagem}");
         }
     }
 }

@@ -1,9 +1,10 @@
-﻿using SOLID.Enums;
+﻿using SOLID.Entities;
+using SOLID.Enums;
 
 namespace SOLID.Interfaces
 {
     public interface IPaymentMethod
     {
-        public StatusEnums Pay(decimal total);
+        public PaymentResponse Pay(decimal total);
     }
 }

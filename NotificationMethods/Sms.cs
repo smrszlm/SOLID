@@ -7,6 +7,7 @@ namespace SOLID.NotificationMethods
         public void Notify(string customerName, string mensagem)
         {
             Console.WriteLine($"{customerName},{mensagem}");
-                }
+
+        }
     }
 }

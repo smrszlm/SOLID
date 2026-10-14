@@ -11,7 +11,7 @@ namespace SOLID.PaymentMethods
             return new PaymentResponse
             {
                 Status = StatusEnums.Paid,
-                TransactionId = 0,
+                TransactionId ="0",
                 Mensagem = null
             };
         }

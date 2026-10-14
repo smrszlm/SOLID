@@ -1,10 +1,7 @@
-﻿using SOLID.Entities;
-using SOLID.Enums;
-
-namespace SOLID.Interfaces
+﻿namespace SOLID.Interfaces
 {
     public interface IDiscount
     {
-        Task<decimal> GetDiscount(OrderRequest order, DiscountEnums discount);
+       public decimal GetDiscount(OrderRequest order);
     }
 }

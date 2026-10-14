@@ -11,8 +11,8 @@ namespace SOLID.PaymentMethods
             return new PaymentResponse
             {
                 Status = StatusEnums.Pending,
-                TransactionId = 0,
-                Mensagem = null
+                TransactionId = "0",
+                Mensagem = "Aguardando pagamento do boleto."
             };
         }
     }

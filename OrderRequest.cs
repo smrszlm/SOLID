@@ -12,7 +12,7 @@ namespace SOLID
 
         public decimal Total { get; set; }
         
-        public DiscountEnums DiscountType { get; set; }
+        public string? DiscountType { get; set; }
 
         public StatusEnums Status { get; set; }
     }
